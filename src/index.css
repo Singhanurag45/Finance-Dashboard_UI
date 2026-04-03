@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+}
+
+@layer base {
+  :root {
+    --app-bg: #f8fafc;
+    --app-bg-soft: #eef2ff;
+    --app-surface: rgba(255, 255, 255, 0.94);
+    --app-surface-soft: rgba(255, 255, 255, 0.84);
+    --app-border: rgba(148, 163, 184, 0.34);
+    --app-text: #0f172a;
+    --app-text-muted: #334155;
+    --app-primary-from: #8b5cf6;
+    --app-primary-to: #4f46e5;
+    --app-success: #22c55e;
+    --app-danger: #ef4444;
+  }
+
+  .dark {
+    --app-bg: #09090b;
+    --app-bg-soft: #18181b;
+    --app-surface: rgba(255, 255, 255, 0.05);
+    --app-surface-soft: rgba(255, 255, 255, 0.08);
+    --app-border: rgba(255, 255, 255, 0.12);
+    --app-text: #f8fafc;
+    --app-text-muted: #a1a1aa;
+    --app-primary-from: #a78bfa;
+    --app-primary-to: #6366f1;
+    --app-success: #34d399;
+    --app-danger: #fb7185;
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+}
+
+@layer utilities {
+  .bg-app-surface {
+    background-color: var(--app-surface);
+  }
+
+  .bg-app-surface-soft {
+    background-color: var(--app-surface-soft);
+  }
+
+  .border-app {
+    border-color: var(--app-border);
+  }
+
+  .text-app {
+    color: var(--app-text);
+  }
+
+  .text-app-muted {
+    color: var(--app-text-muted);
+  }
+
+  .btn-primary-gradient {
+    background-image: linear-gradient(
+      to right,
+      var(--app-primary-from),
+      var(--app-primary-to)
+    );
+    color: #fff;
+  }
+
+  .text-success {
+    color: var(--app-success);
+  }
+
+  .text-danger {
+    color: var(--app-danger);
+  }
+}
