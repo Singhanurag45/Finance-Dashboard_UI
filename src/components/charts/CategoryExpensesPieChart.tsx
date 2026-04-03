@@ -43,7 +43,7 @@ export function CategoryExpensesPieChart({ data }: Props) {
 
   if (data.length === 0) {
     return (
-      <div className="bg-app-surface flex h-[320px] w-full items-center justify-center rounded-2xl border border-app p-6 backdrop-blur shadow-sm">
+      <div className="bg-app-surface flex h-[260px] w-full min-w-0 max-w-full items-center justify-center rounded-2xl border border-app p-6 backdrop-blur shadow-sm sm:h-[320px]">
         <div className="max-w-sm text-center">
           <span className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-violet-300 ring-1 ring-white/15">
             <PieChartIcon className="h-4.5 w-4.5" />
@@ -60,7 +60,7 @@ export function CategoryExpensesPieChart({ data }: Props) {
   }
 
   return (
-    <div className="h-[320px] w-full">
+    <div className="h-[260px] w-full min-w-0 max-w-full sm:h-[320px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Tooltip
@@ -108,9 +108,9 @@ export function CategoryExpensesPieChart({ data }: Props) {
             nameKey="name"
             dataKey="value"
             cx="50%"
-            cy="50%"
-            innerRadius={55}
-            outerRadius={95}
+            cy="45%"
+            innerRadius="42%"
+            outerRadius="72%"
             paddingAngle={3}
             stroke={isDark ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.9)'}
             isAnimationActive={false}

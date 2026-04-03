@@ -120,7 +120,7 @@ export function HomePage() {
   };
 
   return (
-    <section className="space-y-8 pb-10">
+    <section className="min-w-0 max-w-full space-y-8 pb-10">
       {/* Header */}
       <header className="space-y-2">
         <div className="flex items-center gap-2">
@@ -129,8 +129,8 @@ export function HomePage() {
             {appName} System
           </p>
         </div>
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
+        <div className="flex min-w-0 flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div className="min-w-0">
             <h1 className="text-3xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 sm:text-4xl">
               Overview
             </h1>
@@ -142,7 +142,7 @@ export function HomePage() {
             type="button"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2 rounded-xl bg-teal-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-teal-600/20 hover:bg-teal-700 transition-all"
+            className="flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-teal-600/20 hover:bg-teal-700 transition-all sm:w-auto sm:justify-start"
             onClick={handleGenerateReport}
           >
             <Download className="h-4 w-4" />
@@ -206,7 +206,7 @@ export function HomePage() {
       )}
 
       {/* Charts Section */}
-      <section className="grid gap-6 lg:grid-cols-[1.8fr_1fr]">
+      <section className="grid min-w-0 gap-6 lg:grid-cols-[1.8fr_1fr] [&>*]:min-w-0">
         <ChartContainer
           title="Balance Trend"
           subtitle="Cumulative growth over 30 days"
@@ -229,8 +229,8 @@ export function HomePage() {
       </section>
 
       {/* Transactions Table Section */}
-      <div className="overflow-hidden rounded-3xl border border-zinc-100 bg-white/50 backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/50 shadow-sm">
-        <div className="border-b border-zinc-100 p-6 dark:border-zinc-800">
+      <div className="min-w-0 max-w-full overflow-x-auto rounded-3xl border border-zinc-100 bg-white/50 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/50">
+        <div className="border-b border-zinc-100 p-4 sm:p-6 dark:border-zinc-800">
           <h3 className="font-bold text-zinc-900 dark:text-zinc-100">
             Recent Transactions
           </h3>
@@ -275,7 +275,7 @@ function MetricCard({
     <motion.article
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`relative overflow-hidden rounded-3xl border p-6 transition-all hover:shadow-xl dark:bg-zinc-900 dark:border-zinc-800 ${styles}`}
+      className={`relative min-w-0 max-w-full overflow-hidden rounded-3xl border p-6 transition-all hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900 ${styles}`}
     >
       <div className="flex items-center justify-between">
         <div>
@@ -328,25 +328,25 @@ function ChartContainer({
   children,
 }: ChartContainerProps) {
   return (
-    <article className="rounded-3xl border border-zinc-100 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900 shadow-sm transition-all hover:border-teal-500/20">
-      <div className="mb-6 flex items-start justify-between">
-        <div className="flex gap-4">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 dark:bg-teal-500/10 dark:text-teal-400">
+    <article className="min-w-0 max-w-full overflow-hidden rounded-3xl border border-zinc-100 bg-white p-4 shadow-sm transition-all hover:border-teal-500/20 dark:border-zinc-800 dark:bg-zinc-900 sm:p-6">
+      <div className="mb-4 flex flex-col gap-3 sm:mb-6 sm:flex-row sm:items-start sm:justify-between">
+        <div className="flex min-w-0 gap-3 sm:gap-4">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 sm:h-11 sm:w-11 dark:bg-teal-500/10 dark:text-teal-400">
             {icon}
           </div>
-          <div>
+          <div className="min-w-0">
             <h3 className="font-bold text-zinc-900 dark:text-zinc-100">
               {title}
             </h3>
             <p className="text-xs text-zinc-500">{subtitle}</p>
           </div>
         </div>
-        <span className="rounded-full bg-zinc-50 px-3 py-1 text-[10px] font-bold text-zinc-500 dark:bg-zinc-800">
+        <span className="w-fit shrink-0 rounded-full bg-zinc-50 px-3 py-1 text-[10px] font-bold text-zinc-500 dark:bg-zinc-800">
           {badge}
         </span>
       </div>
       {isLoading ? (
-        <div className="h-64 w-full animate-pulse rounded-2xl bg-zinc-50 dark:bg-zinc-800/50" />
+        <div className="h-[220px] w-full min-w-0 animate-pulse rounded-2xl bg-zinc-50 sm:h-64 dark:bg-zinc-800/50" />
       ) : (
         children
       )}

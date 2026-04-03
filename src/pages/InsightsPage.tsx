@@ -95,7 +95,7 @@ export function InsightsPage() {
   }, [transactions]);
 
   return (
-    <section className="max-w-7xl space-y-8 pb-10">
+    <section className="min-w-0 max-w-full space-y-8 pb-10">
       {/* Header Section */}
       <header className="relative space-y-2">
         <div className="flex items-center gap-2 text-teal-600 dark:text-teal-400">
@@ -143,7 +143,7 @@ export function InsightsPage() {
       )}
 
       {/* Stats Grid */}
-      <section className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="grid min-w-0 gap-5 sm:grid-cols-2 lg:grid-cols-3 [&>*]:min-w-0">
         {/* Card 1: Top Spending */}
         <StatCard title="Highest Spending" isLoading={isLoading} index={0}>
           {insights.highestSpending ? (
@@ -213,7 +213,7 @@ export function InsightsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="overflow-hidden rounded-3xl border border-teal-100 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+        className="min-w-0 max-w-full overflow-hidden rounded-3xl border border-teal-100 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
       >
         <div className="flex flex-col items-start justify-between gap-4 border-b border-zinc-100 p-6 sm:flex-row sm:items-center dark:border-zinc-800">
           <div className="flex items-center gap-4">
@@ -237,11 +237,11 @@ export function InsightsPage() {
           </div>
         </div>
 
-        <div className="p-6">
+        <div className="min-w-0 p-4 sm:p-6">
           {isLoading ? (
-            <div className="h-[350px] w-full animate-pulse rounded-2xl bg-zinc-100 dark:bg-zinc-800/50" />
+            <div className="h-[260px] w-full min-w-0 animate-pulse rounded-2xl bg-zinc-100 sm:h-[350px] dark:bg-zinc-800/50" />
           ) : (
-            <div className="h-[350px] w-full">
+            <div className="h-[260px] w-full min-w-0 sm:h-[350px]">
               <MonthlyIncomeExpenseChart data={insights.monthlyData} />
             </div>
           )}
@@ -268,7 +268,7 @@ function StatCard({
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-teal-50 bg-white p-6 shadow-sm transition-all hover:border-teal-200 hover:shadow-xl hover:shadow-teal-900/5 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-teal-500/30"
+      className="group relative flex min-w-0 max-w-full flex-col justify-between overflow-hidden rounded-3xl border border-teal-50 bg-white p-5 shadow-sm transition-all hover:border-teal-200 hover:shadow-xl hover:shadow-teal-900/5 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-teal-500/30 sm:p-6"
     >
       <div>
         <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400 group-hover:text-teal-600 transition-colors">

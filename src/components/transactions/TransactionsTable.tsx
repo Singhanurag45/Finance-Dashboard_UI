@@ -144,9 +144,9 @@ export function TransactionsTable() {
   };
 
   return (
-    <div className="space-y-6 px-4 pb-4 sm:px-6 sm:pb-6">
-      <div className="rounded-3xl border border-teal-100/70 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70 sm:p-5">
-        <div className="flex flex-col gap-4 border-b border-zinc-100 pb-4 dark:border-zinc-800 sm:flex-row sm:items-start sm:justify-between">
+    <div className="w-full min-w-0 max-w-full space-y-6 px-3 pb-4 sm:px-6 sm:pb-6">
+      <div className="min-w-0 rounded-3xl border border-teal-100/70 bg-white/80 p-3 shadow-sm backdrop-blur dark:border-zinc-800 dark:bg-zinc-900/70 sm:p-5">
+        <div className="flex min-w-0 flex-col gap-4 border-b border-zinc-100 pb-4 dark:border-zinc-800 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-1">
             <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
               Ledger Entries
@@ -156,14 +156,14 @@ export function TransactionsTable() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex min-w-0 flex-wrap items-stretch gap-2 sm:items-center">
             <button
               type="button"
               onClick={handleExportCsv}
-              className="inline-flex h-10 items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 text-xs font-bold text-zinc-700 transition-all hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-teal-500/30 dark:hover:bg-teal-500/10 dark:hover:text-teal-300"
+              className="inline-flex h-10 flex-1 items-center justify-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 text-xs font-bold text-zinc-700 transition-all hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700 sm:flex-initial sm:px-4 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 dark:hover:border-teal-500/30 dark:hover:bg-teal-500/10 dark:hover:text-teal-300"
             >
-              <Download className="h-4 w-4" />
-              Export CSV
+              <Download className="h-4 w-4 shrink-0" />
+              <span className="truncate">Export CSV</span>
             </button>
 
             {role === "Admin" && (
@@ -173,9 +173,9 @@ export function TransactionsTable() {
                   setEditingTransaction(null);
                   setIsAddModalOpen(true);
                 }}
-                className="inline-flex h-10 items-center rounded-xl bg-teal-600 px-4 text-xs font-bold text-white shadow-lg shadow-teal-600/20 transition-all hover:bg-teal-700"
+                className="inline-flex h-10 flex-1 items-center justify-center rounded-xl bg-teal-600 px-3 text-xs font-bold text-white shadow-lg shadow-teal-600/20 transition-all hover:bg-teal-700 sm:flex-initial sm:px-4"
               >
-                Add Transaction
+                <span className="truncate">Add Transaction</span>
               </button>
             )}
           </div>
@@ -220,9 +220,9 @@ export function TransactionsTable() {
       </div>
 
       {/* Table Container */}
-      <div className="overflow-hidden rounded-3xl border border-teal-100/60 bg-white/60 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+      <div className="min-w-0 overflow-hidden rounded-3xl border border-teal-100/60 bg-white/60 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50">
+        <div className="overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
+          <table className="w-full min-w-[36rem] text-left border-collapse md:min-w-full">
             <thead>
               <tr className="border-b border-zinc-100 dark:border-zinc-800">
                 <th className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-zinc-400">

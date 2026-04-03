@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export function TransactionsPage() {
   return (
-    <section className="relative space-y-8 pb-10">
+    <section className="relative min-w-0 max-w-full space-y-8 pb-10">
       {/* Decorative background glow */}
       <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-teal-500/5 blur-[120px] pointer-events-none" />
 
@@ -29,7 +29,7 @@ export function TransactionsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="relative overflow-hidden rounded-3xl border border-teal-100/50 bg-white/50 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50"
+        className="relative min-w-0 max-w-full overflow-x-auto overflow-y-visible rounded-3xl border border-teal-100/50 bg-white/50 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/50"
       >
         <TransactionsTable />
       </motion.div>

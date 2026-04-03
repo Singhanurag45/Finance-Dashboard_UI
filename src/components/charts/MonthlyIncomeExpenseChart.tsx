@@ -31,7 +31,7 @@ function formatMoney(value: number) {
 export function MonthlyIncomeExpenseChart({ data }: Props) {
   if (data.length === 0) {
     return (
-      <div className="bg-app-surface flex h-[320px] w-full items-center justify-center rounded-2xl border border-app p-6 backdrop-blur shadow-sm">
+      <div className="bg-app-surface flex h-[260px] w-full min-w-0 max-w-full items-center justify-center rounded-2xl border border-app p-6 backdrop-blur shadow-sm sm:h-[320px]">
         <div className="max-w-sm text-center">
           <span className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-violet-300 ring-1 ring-white/15">
             <BarChart3 className="h-4.5 w-4.5" />
@@ -48,9 +48,9 @@ export function MonthlyIncomeExpenseChart({ data }: Props) {
   }
 
   return (
-    <div className="h-[320px] w-full">
+    <div className="h-full min-h-[240px] w-full min-w-0 max-w-full sm:min-h-[320px]">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={data} margin={{ top: 18, right: 18, left: -8, bottom: 10 }}>
+        <BarChart data={data} margin={{ top: 12, right: 6, left: -14, bottom: 8 }}>
           <defs>
             <linearGradient id="incomeBar" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#a78bfa" stopOpacity={0.95} />

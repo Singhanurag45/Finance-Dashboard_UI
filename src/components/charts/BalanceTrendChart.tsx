@@ -43,7 +43,7 @@ export function BalanceTrendChart({ data }: Props) {
 
   if (data.length === 0) {
     return (
-      <div className="bg-app-surface flex h-[320px] w-full items-center justify-center rounded-2xl border border-app p-6 backdrop-blur shadow-sm">
+      <div className="bg-app-surface flex h-[240px] w-full min-w-0 max-w-full items-center justify-center rounded-2xl border border-app p-6 backdrop-blur shadow-sm sm:h-[320px]">
         <div className="max-w-sm text-center">
           <span className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-violet-300 ring-1 ring-white/15">
             <LineChart className="h-4.5 w-4.5" />
@@ -60,11 +60,11 @@ export function BalanceTrendChart({ data }: Props) {
   }
 
   return (
-    <div className="h-[320px] w-full">
+    <div className="h-[240px] w-full min-w-0 max-w-full sm:h-[320px]">
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           data={data}
-          margin={{ top: 18, right: 18, left: -6, bottom: 10 }}
+          margin={{ top: 12, right: 8, left: -12, bottom: 4 }}
         >
           <defs>
             <linearGradient id="balanceArea" x1="0" y1="0" x2="0" y2="1">
